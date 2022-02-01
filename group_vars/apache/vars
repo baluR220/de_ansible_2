@@ -1,0 +1,15 @@
+users:
+  user_1:
+    name: Alice
+    mail: alice@example.com
+    password: "{{ user_1.vault_password }}"
+
+  user_2:
+    name: Bob
+    mail: bob@example.com
+    password: "{{ user_2.vault_password }}"
+
+  user_3:
+    name: Carol
+    mail: carol@example.com
+    password: "{{ user_3.vault_password }}"

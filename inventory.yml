@@ -1,0 +1,16 @@
+all:
+  hosts:
+    node[1:2].example.com:
+  children:
+    apache:
+      hosts:
+        node1.example.com:
+    nginx:
+      hosts:
+        node2.example.com:
+    webservers:
+      children:
+        apache:
+        nginx:
+
+

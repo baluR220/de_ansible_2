@@ -1,0 +1,16 @@
+- name: Create users
+  hosts: apache
+  gather_facts: false
+  become: yes
+  tasks:
+
+    - name: Create users from vars
+      user:
+        name: "{{ item.value.name }}"
+        comment: "{{ item.value.mail }}"
+        create_home: yes
+        shell: /bin/bash
+        password: "{{ item.value.password | password_hash('sha512') }}"
+        update_password: on_create
+      loop: "{{ users | dict2items}}"
+
